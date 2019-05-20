@@ -1,0 +1,18 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title} - #{assignee}
+    script(src="./scripts/Chart.js")
+    script(src="./scripts/jquery.js")
+    script(src="./scripts/q.js")
+    
+  body(height="200", width="200")
+    canvas(id="myChart", height="200", width="200")
+    script.
+      var assignee = "#{assignee}"
+      var showOnlyStaleIssues = "#{showOnlyStaleIssues}"
+      var chartType = "#{chartType}"
+      var showTeamDashboard = "#{showTeamDashboard}"
+    script(src='./scripts/queryData.js')
+    p(id='error')
