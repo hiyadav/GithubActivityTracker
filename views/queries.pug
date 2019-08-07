@@ -6,7 +6,7 @@ html
     script(src="./scripts/Chart.js")
     script(src="./scripts/jquery.js")
     script(src="./scripts/q.js")
-    
+
   body(height="200", width="200")
     canvas(id="myChart", height="200", width="200")
     script.
@@ -14,5 +14,6 @@ html
       var showOnlyStaleIssues = "#{showOnlyStaleIssues}"
       var chartType = "#{chartType}"
       var showTeamDashboard = "#{showTeamDashboard}"
+      var repo = "#{repo}"
     script(src='./scripts/queryData.js')
     p(id='error')
