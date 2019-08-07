@@ -1,13 +1,13 @@
 {
-  "name": "nodejs-webapp-express",
-  "version": "0.0.0",
+  "name": "Track GitHub repositories",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app"
   },
-  "description": "nodejs-webapp-express",
+  "description": "Node webapp to view GitHub repository data for a assignee.",
   "author": {
-    "name": "alagrawa"
+    "name": "hiyada"
   },
   "dependencies": {
     "applicationinsights": "^1.0.0",
