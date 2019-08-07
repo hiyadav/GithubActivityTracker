@@ -9,7 +9,8 @@ router.get('/', function (req, res) {
         assignee: req.query.assignee,
         showOnlyStaleIssues: req.query.showOnlyStaleIssues,
         chartType: req.query.chartType,
-        showTeamDashboard: req.query.showTeamDashboard
+        showTeamDashboard: req.query.showTeamDashboard,
+        repo: req.query.repo //format: organization/repoName
     });
 });
 

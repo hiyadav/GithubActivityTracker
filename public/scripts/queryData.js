@@ -1,6 +1,9 @@
 var ctx = document.getElementById("myChart");//.getContext('2d');
 
 assignee = assignee || "bishal-pdMSFT"
+var repo = repo || "microsoft/azure-pipelines-tasks";
+var query = "-label:enhancement+is:open -label:\"Area: Documentation\"";
+var lastCopiedUrl;
 
 // Define a plugin to provide data labels on the chart items
 Chart.plugins.register({
@@ -127,10 +130,6 @@ var chart = new Chart(ctx, {
     }
 });
 
-var repo = "microsoft/azure-pipelines-tasks";
-var query = "-label:enhancement+is:open -label:\"Area: Documentation\"";
-var lastCopiedUrl;
-
 function toolTipLabelCallback(tooltipItem, data) {
     var label = data.datasets[tooltipItem.datasetIndex].label || '';
     var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
@@ -160,7 +159,7 @@ function handleOnClick(e) {
     var clkAlias = showTeamDashboard ? aliasesForDashboard[element._index] : assignee;
     url = 'https://github.com/' + repo + "/issues?q=" + query + "+assignee:" + clkAlias;
 
-    var filters = showOnlyStaleIssues ? 
+    var filters = showOnlyStaleIssues ?
         [
             "+is:issue+updated:<" + getDateBeforeDays(21),
             "+is:pr+updated:<" + getDateBeforeDays(7)
@@ -236,7 +235,7 @@ function updateOtherRepoData(result, indexToUse) {
 
     var oldIssues = issues.filter(i => isOlder(i, 21));
     var pullRequestsOld = pullRequests.filter(i => isOlder(i, 7));
-    
+
     if (!showOnlyStaleIssues) {
         chart.data.datasets[0].data[0] = chart.data.datasets[0].data[0] + issues.length;
         chart.data.datasets[0].data[1] = chart.data.datasets[0].data[1] + oldIssues.length;
